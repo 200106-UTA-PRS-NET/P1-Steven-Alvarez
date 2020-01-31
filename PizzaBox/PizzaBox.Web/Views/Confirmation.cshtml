@@ -1,0 +1,65 @@
+﻿@model PizzaBox.Web.Models.PizzaViewModel
+
+@{
+    ViewData["Title"] = "Confirm Pizza";
+}
+<h1>Confirm Pizza</h1>
+<div>
+    <h4>PizzaViewModel</h4>
+    <hr />
+    <form asp-action="ConfirmPizza" method="post">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Crust)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Crust.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Sauce)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Sauce.Name)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cheese)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cheese.Name)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Size.SizeName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Topping)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Topping.Name)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            @Html.HiddenFor(m => m.Crust)
+
+            @Html.HiddenFor(m => m.Cheese)
+
+            <dd class="col-sm-10">
+                <input type="submit" value="Confirm" class="btn btn-primary" />
+            </dd>
+        </dl>
+    </form>
+</div>
+

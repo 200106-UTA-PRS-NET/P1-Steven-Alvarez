@@ -1,0 +1,46 @@
+﻿@model PizzaBox.Web.Models.CustomPizzaViewModel
+
+@using PizzaBox.Domain.Entities;
+
+@{
+    ViewData["Title"] = "Custom";
+}
+
+<h1>Create your own pizza</h1>
+
+<form asp-action="ConfirmPizza" method="get">
+    <fieldset>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <legend>Crust</legend>
+        @foreach (var item in ViewBag.crusts as IList<Crust>)
+        {
+            @Html.RadioButtonFor(m => m.SelectedCrustId, item.Id) <text>@item.Name</text><br />
+        }
+
+        <legend>Cheese</legend>
+        @foreach (var item in ViewBag.cheeses as IList<Cheese>)
+        {
+            @Html.RadioButtonFor(m => m.SelectedCheeseId, item.Id) <text>@item.Name</text><br />
+        }
+
+        <legend>Sauce</legend>
+        @foreach (var item in ViewBag.sauces as IList<Sauce>)
+        {
+            @Html.RadioButtonFor(m => m.SelectedSauceId, item.Id) <text>@item.Name</text><br />
+        }
+
+        <legend>Size</legend>
+        @foreach (var item in ViewBag.sizes as IList<Size>)
+        {
+            @Html.RadioButtonFor(m => m.SelectedSizeId, item.SizeId) <text>@item.SizeName</text><br />
+        }
+
+        <legend>Topping</legend>
+        @foreach (var item in ViewBag.toppings as IList<Toppings>)
+        {
+            @Html.RadioButtonFor(m => m.SelectedToppingId, item.Id) <text>@item.Name</text><br />
+        }
+
+        <input type="submit" value="submit" class="btn btn-primary">
+    </fieldset>
+</form>
