@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj": {}
+    "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj": {}
   },
   "projects": {
-    "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj": {
+    "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
+        "projectUniqueName": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
         "projectName": "PizzaBox.Testing",
-        "projectPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
+        "projectPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\obj\\",
+        "outputPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Testing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",

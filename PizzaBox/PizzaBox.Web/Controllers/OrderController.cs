@@ -38,11 +38,11 @@ namespace PizzaBox.Web.Controllers
 
 
 
-        public IActionResult ViewOrder()
+        public IActionResult OrderView()
         {
             var pizzas = _repo.GetOrderedPizzas().ToList();
 
-            OrderViewModel ovm = new OrderViewModel()
+            OrderViewModel orderVM = new OrderViewModel()
             {
                 Pizzas = new Dictionary<Pizza, decimal>()
             };
@@ -56,10 +56,10 @@ namespace PizzaBox.Web.Controllers
                 }
                 decimal price = _pizzaRepo.GetPriceByPizza(p);
                 subtotal += price;
-                ovm.Pizzas.Add(p, price);
+                orderVM.Pizzas.Add(p, price);
             }
-            ovm.Subtotal = subtotal;
-            return View(ovm);
+            orderVM.Subtotal = subtotal;
+            return View(orderVM);
         }
 
         public string SubmitOrder()

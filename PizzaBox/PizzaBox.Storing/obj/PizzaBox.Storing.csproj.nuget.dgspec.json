@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {}
+    "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {}
   },
   "projects": {
-    "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+    "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "projectUniqueName": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
         "projectName": "PizzaBox.Domain",
-        "projectPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "projectPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\obj\\",
+        "outputPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
+    "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "projectUniqueName": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
         "projectName": "PizzaBox.Storing",
-        "projectPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "projectPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\obj\\",
+        "outputPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Storing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -97,8 +97,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
-                "projectPath": "C:\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+              "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+                "projectPath": "C:\\P1\\P1-Steven-Alvarez\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
               }
             }
           }

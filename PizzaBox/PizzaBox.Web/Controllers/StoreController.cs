@@ -20,7 +20,7 @@ namespace PizzaBox.Web.Controllers
         private readonly IUser _uR;
         private readonly IStore _sR;
         private readonly IPizza _pR;
-        private readonly IOrder _orderRepo;
+        private readonly IOrder _oR;
 
 
 
@@ -30,7 +30,7 @@ namespace PizzaBox.Web.Controllers
             _uR = userRepo;
             _sR = storeRepo;
             _pR = pizzaRepo;
-            _orderRepo = orderRepo;
+            _oR = orderRepo;
 
         }
 
@@ -88,7 +88,7 @@ namespace PizzaBox.Web.Controllers
             return View(spVM);
         }
 
-        public IActionResult Custom()
+        public IActionResult CustomPizza()
         {
             Dictionary<Toppings, bool> top = new Dictionary<Toppings, bool>();
 
@@ -122,10 +122,10 @@ namespace PizzaBox.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult ConfirmPizza(CustomPizzaViewModel C)
+        public IActionResult Confirmation(CustomPizzaViewModel C)
         {
             Pizza p = _pR.MapPizzaByIDs(C.SelectedCrustId, C.SelectedSauceId, C.SelectedCheeseId, C.SelectedSizeId, C.SelectedToppingId);
-            _orderRepo.SetCurrentPizza(p);
+            _oR.SetCurrentPizza(p);
             PizzaViewModel pizzaVM = new PizzaViewModel()
             {
                 Cheese = p.Cheese,
@@ -139,18 +139,18 @@ namespace PizzaBox.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConfirmPizza(PizzaViewModel pizzaVM)
+        public IActionResult Confirmation(PizzaViewModel pizzaVM)
         {
-            Pizza p = _orderRepo.GetCurrentPizza();
-            _orderRepo.AddPizzaToOrder(p, _pR.GetPriceByPizza(p));
+            Pizza p = _oR.GetCurrentPizza();
+            _oR.AddPizzaToOrder(p, _pR.GetPriceByPizza(p));
 
             return RedirectToAction("ViewOrder", "Order");
         }
 
         // Displays store order history
-        public IActionResult OrderHistory(int? id)
+        public IActionResult OHistory(int? id)
         {
-            List<Order> orders = _orderRepo.GetStoreOrderHistoryById(id.Value);
+            List<Order> orders = _oR.GetStoreOrderHistoryById(id.Value);
 
             List<StoreOHistoryViewModel> storeOrdersVM = new List<StoreOHistoryViewModel>();
 
@@ -162,7 +162,7 @@ namespace PizzaBox.Web.Controllers
                     OrderID = item.OrderId,
                     OrderDate = item.OrderDate,
                     Subtotal = item.TotalCost,
-                    OrderedPizzas = _orderRepo.GetOrderedPizzasByOrderId(item.OrderId)
+                    OrderedPizzas = _oR.GetOrderedPizzasByOrderId(item.OrderId)
                 };
 
                 storeOrdersVM.Add(sOHVM);
