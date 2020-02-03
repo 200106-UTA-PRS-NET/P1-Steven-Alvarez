@@ -13,5 +13,6 @@ namespace PizzaBox.Web.Models
         [Required(ErrorMessage = "Name cannot be empty")]
         public string Name { get; set; }
         public int Id { get; set; }
+        public string WaitTime { get; set; }
     }
 }

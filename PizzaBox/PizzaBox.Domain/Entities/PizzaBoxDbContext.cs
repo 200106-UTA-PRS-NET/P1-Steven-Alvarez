@@ -17,7 +17,6 @@ namespace PizzaBox.Domain.Entities
         {
         }
 
-        public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<Cheese> Cheeses { get; set; }
         public virtual DbSet<Crust> Crust { get; set; }
         public virtual DbSet<Order> Order { get; set; }
@@ -246,7 +245,6 @@ namespace PizzaBox.Domain.Entities
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.StorePizzas)
                     .HasForeignKey(d => d.StoreId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Store_Piz__store");
             });
 
@@ -310,7 +308,9 @@ namespace PizzaBox.Domain.Entities
                     .HasMaxLength(20)
                     .IsUnicode(false);
             });
+            OnModelCreatingPartial(modelBuilder);
         }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 
 }

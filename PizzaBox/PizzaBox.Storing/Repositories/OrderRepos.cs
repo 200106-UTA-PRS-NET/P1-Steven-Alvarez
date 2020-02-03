@@ -16,7 +16,7 @@ namespace PizzaBox.Storing.Repositories
         PizzaBoxDbContext db;
 
         static Dictionary<Pizza, decimal> orderedPizzas = new Dictionary<Pizza, decimal>();
-
+        static Pizza currPizza = new Pizza();
         public OrderRepos()
         {
             db = new PizzaBoxDbContext();
@@ -26,7 +26,6 @@ namespace PizzaBox.Storing.Repositories
         {
             this.db = db ?? throw new ArgumentNullException(nameof(db));
         }
-        static Pizza currPizza = new Pizza();
 
         public void AddPizzaToOrder(Pizza p, decimal price)
         {
@@ -172,6 +171,29 @@ namespace PizzaBox.Storing.Repositories
                         select p;
 
             return query.ToList();
+        }
+        public List<Order> GetUserOrderHistoryById(int userID)
+
+        {
+
+            var query = db.Order.Where(o => o.UserId == userID);
+
+
+
+            return query.ToList();
+
+        }
+
+
+
+        public void ClearOrder()
+
+        {
+
+            orderedPizzas.Clear();
+
+            currPizza = null;
+
         }
     }
 }

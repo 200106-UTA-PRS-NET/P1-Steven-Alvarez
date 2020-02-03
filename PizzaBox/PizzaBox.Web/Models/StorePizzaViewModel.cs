@@ -18,6 +18,7 @@ namespace PizzaBox.Web.Models
         public List<string> Toppings { get; set; }
         public string Topping { get; set; }
         public decimal Price { get; set; }
+        public DateTime? WaitTime { get; set; }
     }
 
 }

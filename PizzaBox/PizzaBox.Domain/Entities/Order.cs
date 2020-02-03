@@ -14,10 +14,10 @@ namespace PizzaBox.Domain.Entities
 
 
         public int OrderId { get; set; }
-        public int UserId { get; set; }
-        public int StoreId { get; set; }
-        public decimal TotalCost { get; set; }
-        public DateTime OrderDate { get; set; }
+        public int? UserId { get; set; }
+        public int? StoreId { get; set; }
+        public decimal? TotalCost { get; set; }
+        public DateTime? OrderDate { get; set; }
        // public bool? Active { get; set; }
         public virtual Store Store { get; set; }
         public virtual Users User { get; set; }

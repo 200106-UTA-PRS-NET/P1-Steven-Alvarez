@@ -17,12 +17,8 @@ namespace PizzaBox.Domain.Entities
 
         public int StoreId { get; set; }
         public string StoreName { get; set; }
-        public int AddressId { get; set; }
-        public int UserId { get; set; }
 
 
-        public virtual Address Address { get; set; }
-        public virtual Users User { get; set; }
 
     }
 }

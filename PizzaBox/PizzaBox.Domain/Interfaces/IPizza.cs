@@ -10,14 +10,23 @@ namespace PizzaBox.Domain.Interfaces
 
         public Pizza MapPizzaByIDs(int crustID, int sauceID, int cheeseID, int sizeID, int toppingID);
 
-        public decimal GetPriceByPizza(Pizza p);
-        public decimal GetPriceByID(int id);
+
         public Pizza GetPizzaById(int id);
+
+        public decimal GetPriceByID(int id);
+
         public List<Cheese> GetCheeseTypes();
+
         public List<Sauce> GetSauceTypes();
+
         public List<Crust> GetCrustTypes();
+
         public List<Size> GetSizeTypes();
+
         public List<Toppings> GetToppingTypes();
 
+        public Pizza MapPizzaByIDs(int crustID, int sauceID, int cheeseID, int sizeID, int topping1ID, int topping2ID);
+
+        public decimal GetPriceByPizza(Pizza p);
     }   
 }

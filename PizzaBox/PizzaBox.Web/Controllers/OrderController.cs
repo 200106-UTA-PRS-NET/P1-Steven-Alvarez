@@ -21,6 +21,11 @@ namespace PizzaBox.Web.Controllers
         private readonly IUser _userRepo;
 
 
+        Users currUser;
+
+        Store currStore;
+
+
 
         public OrderController(IOrder repo, IPizza pizzaRepo, IStore storeRepo, IUser userRepo)
 
@@ -34,17 +39,30 @@ namespace PizzaBox.Web.Controllers
 
             _userRepo = userRepo;
 
+            currUser = _userRepo.GetCurrUser();
+
+            currStore = _storeRepo.GetCurrStore();
         }
 
 
 
         public IActionResult OrderView()
         {
+
+            if (currUser == null)
+            {
+
+                return RedirectToAction("Login", "User");
+
+            }
+
+
             var pizzas = _repo.GetOrderedPizzas().ToList();
 
             OrderViewModel orderVM = new OrderViewModel()
             {
-                Pizzas = new Dictionary<Pizza, decimal>()
+                Pizzas = new Dictionary<Pizza, decimal>(),
+                StoreId = _storeRepo.GetCurrStore().StoreId
             };
 
             decimal subtotal = 0;
@@ -62,17 +80,42 @@ namespace PizzaBox.Web.Controllers
             return View(orderVM);
         }
 
-        public string SubmitOrder()
+        public IActionResult SubmitOrder()
         {
-            if (_repo.SubmitOrder(_userRepo.GetCurrUser().Id, _storeRepo.GetCurrStore().StoreId))
+
+            if (currUser == null)
+
             {
-                return "Order Submitted";
+
+                return RedirectToAction("Login", "User");
             }
-            else
+
+
+            if (_repo.SubmitOrder(_userRepo.GetCurrUser().Id, _storeRepo.GetCurrStore().StoreId))
+
             {
-                return "Oh NO!! Something has gone wrong";
+
+                // ORDER SUBMITTED
+
+                _repo.ClearOrder();
+
+                return RedirectToAction("Menu", "Store", new { id = _storeRepo.GetCurrStore().StoreId });
+
+            }
+
+            else
+
+            {
+
+                // ORDER NOT SUBMITTED
+
+                _repo.ClearOrder();
+
+                return RedirectToAction("Menu", "StoreController", _storeRepo.GetCurrStore().StoreId);
+
             }
         }
+
     }
 
 }

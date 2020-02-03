@@ -23,6 +23,31 @@ namespace PizzaBox.Storing.Repositories
             this.db = db ?? throw new ArgumentNullException(nameof(db));
         }
 
+        public Pizza MapPizzaByIDs(int crustID, int sauceID, int cheeseID, int sizeID, int topping1ID, int topping2ID)
+
+        {
+
+            return new Pizza()
+
+            {
+
+                Cheese = db.Cheeses.Where(c => c.Id == cheeseID).Single(),
+
+                Sauce = db.Sauces.Where(s => s.Id == sauceID).Single(),
+
+                Crust = db.Crust.Where(c => c.Id == crustID).Single(),
+
+                Size = db.Size.Where(s => s.SizeId == sizeID).Single(),
+
+                Topping = db.Topping.Where(t => t.Id == topping1ID).Single(),
+
+
+            };
+
+        }
+
+
+
         public decimal GetPriceByID(int id)
         {
             var pizza = db.Pizza.Where(p => p.Id == id).Single();

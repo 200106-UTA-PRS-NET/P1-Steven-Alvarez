@@ -7,18 +7,20 @@ using PizzaBox.Domain;
 using PizzaBox.Domain.Interfaces;
 using PizzaBox.Storing;
 using PizzaBox.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace PizzaBox.Storing.Repositories
 {
     public class StoreRepos : IStore
     {
         PizzaBoxDbContext db;
+        public Store currStore;
+
         public StoreRepos()
         {
             db = new PizzaBoxDbContext();
         }
 
-        public Store currStore;
 
         public StoreRepos(PizzaBoxDbContext db)
         {
@@ -29,31 +31,27 @@ namespace PizzaBox.Storing.Repositories
         {
             var storePizzaIDs = db.StorePizzas.Where(sp => sp.StoreId == id).Select(sp => sp.PizzaId).ToList();
 
-            var pizzas = db.Pizza.Where(p => storePizzaIDs.Contains(p.Id)).ToList();
+            var pizzas = db.Pizza
+                .Include(o => o.Size)
+                .Include(o => o.Crust)
+                .Include(o => o.Cheese)
+                .Include(o => o.Sauce)
+                .Include(o => o.Topping)
+                .Where(p => storePizzaIDs.Contains(p.Id)).ToList();
 
-            foreach (Pizza p in pizzas)
+
+           /* foreach (Pizza p in pizzas)
             {
-                p.Crust = db.Crust.Where(c => c.Id == p.CrustId).Single();
-                p.Cheese = db.Cheeses.Where(c => c.Id == p.CheeseId).Single();
-                p.Sauce = db.Sauces.Where(c => c.Id == p.SauceId).Single();
-                p.Size = db.Size.Where(c => c.SizeId == p.SizeId).Single();
-                p.Topping = db.Topping.Where(c => c.Id == p.ToppingId).Single();
-            }
+               // p.Crust = db.Crust.Where(c => c.Id == p.CrustId).Single();
+               // p.Cheese = db.Cheeses.Where(c => c.Id == p.CheeseId).Single();
+               // p.Sauce = db.Sauces.Where(c => c.Id == p.SauceId).Single();
+                //p.Size = db.Size.Where(c => c.SizeId == p.SizeId).Single();
+                //p.Topping = db.Topping.Where(c => c.Id == p.ToppingId).Single();
+            } */
             return pizzas;
         }
 
-         public void SetCurrStore(Store s)
-        {
-            currStore = s;
 
-        }
-
-        public Store GetCurrStore()
-        {
-            return currStore;
-        }
-
-   
 
         public Store GetStoreById(int id)
         {
@@ -65,6 +63,44 @@ namespace PizzaBox.Storing.Repositories
         {
             var query = db.Store.Select(s => s);
             return query;
+        }
+        public void SetCurrStore(Store s)
+        {
+            currStore = s;
+
+        }
+
+        public Store GetCurrStore()
+        {
+            return currStore;
+        }
+
+
+        public DateTime? GetLastOrderDate(int storeID, int userID)
+
+        {
+
+            try
+
+            {
+
+                var lastOrder = db.Order.Where(o => o.StoreId == storeID && o.UserId == userID)
+
+                    .OrderByDescending(o => o.OrderDate)
+
+                    .FirstOrDefault();
+
+
+
+                return lastOrder.OrderDate.Value;
+
+            }
+            catch (InvalidOperationException)
+            {
+
+                return null;
+
+            }
         }
     }
 }

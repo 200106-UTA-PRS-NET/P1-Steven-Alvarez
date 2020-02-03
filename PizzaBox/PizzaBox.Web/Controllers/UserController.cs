@@ -13,15 +13,38 @@ namespace PizzaBox.Web.Controllers
     public class UserController : Controller
     {
         private readonly IUser _repo;
-        public UserController(IUser repo)
+
+        private readonly IOrder _orderRepo;
+
+        private readonly IStore _storeRepo;
+
+        private readonly IPizza _pizzaRepo;
+
+        Users currUser;
+
+
+        public UserController(IUser repo, IOrder orderRepo, IStore storeRepo, IPizza pizzaRepo)
+
         {
+
             _repo = repo;
+
+            _orderRepo = orderRepo;
+
+            _storeRepo = storeRepo;
+
+            _pizzaRepo = pizzaRepo;
+
+            currUser = _repo.GetCurrUser();
+
         }
+
+
         [Route("User")]
         [Route("User/Info")]
         public IActionResult Info(int? id)
         {
-            var currUser = _repo.GetCurrUser();
+
             if (currUser == null)
             {
                 return RedirectToAction(nameof(Login));
@@ -51,7 +74,6 @@ namespace PizzaBox.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel user)
         {
-            var currUser = _repo.GetCurrUser();
             if (currUser != null)
             {
                 return RedirectToAction("Info", currUser.Id);
@@ -122,5 +144,83 @@ namespace PizzaBox.Web.Controllers
                 return View();
             }
         }
+
+        public IActionResult OrderHistory()
+
+        {
+
+            if (currUser == null)
+
+            {
+
+                return RedirectToAction(nameof(Login));
+
+            }
+
+
+
+            var orders = _orderRepo.GetUserOrderHistoryById(currUser.Id);
+
+
+
+            List<UserOHistoryViewModel> orderHistoryList = new List<UserOHistoryViewModel>();
+
+            foreach (Order o in orders)
+
+            {
+
+                var pizzas = _orderRepo.GetOrderedPizzasByOrderId(o.OrderId).ToList();
+
+
+
+                List<Pizza> pizzaa = new List<Pizza>();
+
+                foreach (var p in pizzas)
+                {
+
+                    Pizza newp = new Pizza();
+
+                    newp = _pizzaRepo.MapPizzaByIDs(p.CrustId.Value, p.SauceId.Value, p.CheeseId.Value, p.SizeId.Value, p.ToppingId.Value);
+
+                    newp.Name = p.Name;
+
+                    pizzaa.Add(newp);
+
+                }
+
+
+
+                UserOHistoryViewModel uohVM = new UserOHistoryViewModel()
+
+                {
+
+                    OrderId = o.OrderId,
+
+                    OrderDate = o.OrderDate.Value,
+
+                    StoreName = _storeRepo.GetStoreById(o.StoreId.Value).StoreName,
+
+                    Subtotal = o.TotalCost.Value,
+
+                    Pizzas = pizzaa
+
+                };
+
+                orderHistoryList.Add(uohVM);
+
+            }
+
+
+
+            return View(orderHistoryList);
+
+
+
+        }
+
+
+
     }
+
 }
+   

@@ -28,3 +28,13 @@ C:\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.D
 C:\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfo.cs
 C:\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.dll
 C:\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.deps.json
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.runtimeconfig.json
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.runtimeconfig.dev.json
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.csprojAssemblyReference.cache
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfoInputs.cache
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfo.cs
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.pdb

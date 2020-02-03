@@ -9,7 +9,9 @@ namespace PizzaBox.Storing.Repositories
 {
     public class UserRepos : IUser
     {
-        PizzaBoxDbContext db;
+        readonly PizzaBoxDbContext db;
+
+        static Users currentUser;
 
 
         public UserRepos()
@@ -39,7 +41,6 @@ namespace PizzaBox.Storing.Repositories
         }
 
 
-        static Users currentUser;
 
         public bool Login(Users user)
         {
