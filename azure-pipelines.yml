@@ -19,8 +19,9 @@ steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'PizzaBoxSonarServiceConnection'
-    organization: '200106-UTA-PRS-NET.P1-Steven-Alvarez'
+    organization: 'pizzabox'
     scannerMode: 'MSBuild'
+    projectKey: 'pizzabox123'
 
 # DotNetBuild
 - task: NuGetToolInstaller@1
