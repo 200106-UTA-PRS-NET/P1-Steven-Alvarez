@@ -24,7 +24,7 @@ steps:
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
-    projectKey: 'P1-Steven-Alvarez'
+    projectKey: 'PizzaBoxPipelinetoken'
     projectName: 'PizzaBox'
 
 # DotNetBuild
