@@ -22,6 +22,10 @@ steps:
     organization: 'pizzabox'
     scannerMode: 'MSBuild'
     projectKey: 'pizzabox123'
+    extraProperties: |
+      sonar.cs.opencover.reportPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+      sonar.exclusions=**/wwwroot/lib/**/*
 
 # DotNetBuild
 - task: NuGetToolInstaller@1
