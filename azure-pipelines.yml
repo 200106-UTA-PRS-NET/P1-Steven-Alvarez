@@ -15,6 +15,19 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+#4 Sonar CLoud preperation analysis
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'PizzaBoxSonarServiceConnection'
+    organization: '200106-UTA-PRS-NET.P1-Steven-Alvarez'
+    scannerMode: 'MSBuild'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+    projectKey: 'PizzaBox'
+    projectName: 'PizzaBox'
+
+# DotNetBuild
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
