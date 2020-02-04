@@ -70,7 +70,7 @@ namespace PizzaBox.Web.Controllers
             {
                 if (p.Name == null || p.Name == "")
                 {
-                    p.Name = "Custom";
+                    p.Name = "CustomPizza";
                 }
                 decimal price = _pizzaRepo.GetPriceByPizza(p);
                 subtotal += price;

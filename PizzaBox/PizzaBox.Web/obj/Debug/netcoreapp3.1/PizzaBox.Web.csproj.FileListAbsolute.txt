@@ -294,7 +294,6 @@ C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\PizzaBox.W
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\PizzaBox.Web.csproj.CopyComplete
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\PizzaBox.Web.dll
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\PizzaBox.Web.pdb
-C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Order\OrderView.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\Confirmation.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\CustomPizza.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\Menu.cshtml.g.cs
@@ -302,5 +301,6 @@ C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\View
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\Index.cshtml.g.cs
-C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\OHistory.cshtml.g.cs
 C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\User\OrderHistory.cshtml.g.cs
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Store\OrderHistory.cshtml.g.cs
+C:\P1\P1-Steven-Alvarez\PizzaBox\PizzaBox.Web\obj\Debug\netcoreapp3.1\Razor\Views\Order\OrderView.cshtml.g.cs

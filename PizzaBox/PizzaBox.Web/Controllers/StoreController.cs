@@ -293,7 +293,7 @@ namespace PizzaBox.Web.Controllers
         }
 
         // Displays store order history
-        public IActionResult OHistory(int? id)
+        public IActionResult OrderHistory(int? id)
         {
 
             if (currUser == null)
