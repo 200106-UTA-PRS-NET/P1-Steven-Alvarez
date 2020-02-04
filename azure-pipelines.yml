@@ -21,11 +21,6 @@ steps:
     SonarCloud: 'PizzaBoxSonarServiceConnection'
     organization: '200106-UTA-PRS-NET.P1-Steven-Alvarez'
     scannerMode: 'MSBuild'
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
-    projectKey: 'PizzaBoxPipeLineTokens'
-    projectName: 'PizzaBox'
 
 # DotNetBuild
 - task: NuGetToolInstaller@1
@@ -45,3 +40,11 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+    projectKey: 'PizzaBoxPipeLineTokens'
+    projectName: 'PizzaBox'
